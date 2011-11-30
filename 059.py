@@ -1,26 +1,19 @@
 import urllib2, re
 
-a = urllib2.urlopen('http://projecteuler.net/project/cipher1.txt').read().split(',')
-a[len(a)-1] = a[len(a)-1].replace('\r\n', '')
-a = [ int(x) for x in a]
+a = [ int(x) for x in  urllib2.urlopen('http://projecteuler.net/project/cipher1.txt').read().split(',') ]
 
 def psw_gen():
    for a in range(97, 123):
       for b in range(97, 123):
          for c in range(97, 123):
-            psw = [a, b, c]
-            yield psw
-
+            yield [ a, b, c ]
 
 max = { 'count': 0, 'psw': [] }
 c = 0
 for psw in psw_gen():
    if c % 1000 == 0: print 'Progress: %d%%' % (c / (26.0 ** 3) * 100)
    c += 1
-   tmp = [ x for x in a ]
-   for i, e in enumerate(tmp):
-      tmp[i] = e ^ psw[ i % len(psw) ]
-   sa = ''.join( [ chr(x) for x in tmp ] )
+   sa = ''.join( [ chr(e ^ psw[ i % len(psw) ]) for i, e in enumerate(a) ] )
    d = re.findall('the', sa, re.I)
    if len(d) > max['count']: max = { 'count': len(d), 'psw': psw }
 
