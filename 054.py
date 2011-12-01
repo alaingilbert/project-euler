@@ -106,15 +106,10 @@ def compare_hands(h1, h2):
          if t1[i] < t2[i]: return False
    return v1 > v2
 
-
 s = 0
-c = 0
 for i in a:
-   c += 1
    h1, h2 = i[:5], i[5:]
    if compare_hands(h1, h2):
       s += 1
-
-h = [[3, 'C'], [3, 'D'], [7, 'C'], [12, 'D'], [12, 'C']]
 
 print s
