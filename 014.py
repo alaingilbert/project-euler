@@ -6,6 +6,7 @@ def a(n):
       steps += 1
    return steps
 
+
 num, max = 0, 0
 for i in range(1, 1000000):
    s = a(i)
