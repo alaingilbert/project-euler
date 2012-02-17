@@ -56,13 +56,13 @@ def has_three(h):
 def has_two_pairs(h):
    if   h[0][0] == h[1][0] and h[2][0] == h[3][0]:
       if custom_sort(h[0], h[2]) > 0: return True, [h[0][0], h[2][0], h[4][0]]
-      else:                                 return True, [h[2][0], h[0][0], h[4][0]]
+      else:                           return True, [h[2][0], h[0][0], h[4][0]]
    elif h[0][0] == h[1][0] and h[3][0] == h[4][0]:
       if custom_sort(h[0], h[3]) > 0: return True, [h[0][0], h[3][0], h[2][0]]
-      else:                                 return True, [h[3][0], h[0][0], h[2][0]]
+      else:                           return True, [h[3][0], h[0][0], h[2][0]]
    elif h[1][0] == h[2][0] and h[3][0] == h[4][0]:
       if custom_sort(h[1], h[3]) > 0: return True, [h[1][0], h[3][0], h[0][0]]
-      else:                                 return True, [h[3][0], h[1][0], h[0][0]]
+      else:                           return True, [h[3][0], h[1][0], h[0][0]]
    return False, []
 
 def has_pair(h):
